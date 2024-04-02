@@ -3,6 +3,8 @@ import { db } from "@/lib/db";
 import { auth } from "@clerk/nextjs";
 import { LayoutDashboard } from "lucide-react";
 import { redirect } from "next/navigation";
+import { DescriptionForm, TitleForm } from "./_components";
+import { ImageForm } from "./_components/image-form";
 
 export default async function CourseIdPage({
   params,
@@ -55,6 +57,9 @@ export default async function CourseIdPage({
             <IconBadge icon={LayoutDashboard} />
             <h2 className="text-xl">Customize your course</h2>
           </div>
+          <TitleForm initialData={course} courseId={course.id} />
+          <DescriptionForm initialData={course} courseId={course.id} />
+          <ImageForm initialData={course} courseId={course.id} />
         </div>
       </div>
     </div>
